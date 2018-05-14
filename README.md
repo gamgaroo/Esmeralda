@@ -2,6 +2,9 @@
 ASP.NET Core Web App for hosting Unity3D WebGL apps with support of Continuous Delivery via Unity Cloud Webhooks.
 Currently tested only on IIS.
 
+[![GitHub release](https://img.shields.io/github/release/Gamgaroo/Esmeralda.js.svg)](https://GitHub.com/Gamgaroo/Esmeralda/releases/)
+[![Build Status](https://travis-ci.org/Gamgaroo/Esmeralda.svg?branch=master)](https://travis-ci.org/Gamgaroo/Esmeralda)
+
 ## Getting Started
 1) Configure *appsettings.json* with your Unity Cloud API Key in Unity section
 2) Create a Unity Cloud webhook with URL http://<APP_URL>/api/builds
