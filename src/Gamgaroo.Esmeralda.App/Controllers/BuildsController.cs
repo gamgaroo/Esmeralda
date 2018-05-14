@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gamgaroo.Esmeralda.Core.Models;
 using Gamgaroo.Esmeralda.Core.Services;
-using Gamgaroo.Esmeralda.Integrations.Slack;
+using Gamgaroo.Esmeralda.Integrations.Slack.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

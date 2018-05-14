@@ -15,8 +15,8 @@ namespace Gamgaroo.Esmeralda.Core.Extensions
             services.AddTransient<IBuildStatusService, BuildStatusService>();
             services.AddTransient<IDownloadService, DownloadService>();
 
-            services.Configure<BuildServiceOptions>(unitySection);
-            services.AddScoped(p => p.GetService<IOptionsSnapshot<BuildServiceOptions>>().Value);
+            services.Configure<UnityOptions>(unitySection);
+            services.AddScoped(p => p.GetService<IOptionsSnapshot<UnityOptions>>().Value);
 
             return services;
         }

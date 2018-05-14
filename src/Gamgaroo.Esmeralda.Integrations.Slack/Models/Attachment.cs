@@ -1,4 +1,4 @@
-﻿namespace Gamgaroo.Esmeralda.Integrations.Slack
+﻿namespace Gamgaroo.Esmeralda.Integrations.Slack.Models
 {
     public sealed class Attachment
     {

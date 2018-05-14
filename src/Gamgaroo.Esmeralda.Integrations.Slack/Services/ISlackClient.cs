@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Gamgaroo.Esmeralda.Integrations.Slack
+namespace Gamgaroo.Esmeralda.Integrations.Slack.Services
 {
     public interface ISlackClient
     {

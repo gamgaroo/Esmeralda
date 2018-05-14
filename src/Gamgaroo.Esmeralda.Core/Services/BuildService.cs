@@ -11,10 +11,10 @@ namespace Gamgaroo.Esmeralda.Core.Services
     {
         private readonly IBuildStatusService _buildStatusService;
         private readonly IDownloadService _downloadService;
-        private readonly BuildServiceOptions _options;
+        private readonly UnityOptions _options;
 
         public BuildService(
-            BuildServiceOptions options,
+            UnityOptions options,
             IBuildStatusService buildStatusService,
             IDownloadService downloadService)
         {
@@ -25,7 +25,7 @@ namespace Gamgaroo.Esmeralda.Core.Services
 
         public async Task HandleAsync(WebHookModel model, string wwwroot)
         {
-            var buildStatusUrl = $"{_options.CloudBaseUrl}{model.Links.Api_Self.Href}";
+            var buildStatusUrl = $"{_options.CloudUrl}{model.Links.Api_Self.Href}";
             var buildStatusModel = await _buildStatusService.GetBuildStatusModelAsync(buildStatusUrl, _options.ApiKey);
 
             var downloadUrl = $"{buildStatusModel.Links.Download_Primary.Href}";
@@ -36,7 +36,7 @@ namespace Gamgaroo.Esmeralda.Core.Services
                 if (!Directory.Exists(zipDirectory))
                     Directory.CreateDirectory(zipDirectory);
 
-                var path = $"{zipDirectory}\\{buildStatusModel.Build}.zip";
+                var path = Path.Combine(zipDirectory, $"{buildStatusModel.Build}.zip");
 
                 SaveZipFile(stream, path);
                 UnzipFileToWwwRoot(path, wwwroot);
@@ -45,12 +45,12 @@ namespace Gamgaroo.Esmeralda.Core.Services
 
         private static string GetTempDirectory(string wwwroot)
         {
-            return $"{wwwroot}\\Temp";
+            return Path.Combine(wwwroot, "Temp");
         }
 
         private static string GetZipDirectory(string wwwroot)
         {
-            return $"{wwwroot}\\Zip";
+            return Path.Combine(wwwroot, "Zip");
         }
 
         private static void SaveZipFile(Stream stream, string path)
@@ -85,7 +85,7 @@ namespace Gamgaroo.Esmeralda.Core.Services
 
             foreach (var directory in Directory.GetDirectories(buildDirectory))
             {
-                var dist = $"{wwwroot}\\{new DirectoryInfo(directory).Name}";
+                var dist = Path.Combine(wwwroot, new DirectoryInfo(directory).Name);
 
                 if (Directory.Exists(dist))
                     Directory.Delete(dist, true);
@@ -95,7 +95,7 @@ namespace Gamgaroo.Esmeralda.Core.Services
 
             foreach (var file in Directory.GetFiles(buildDirectory))
             {
-                var dist = $"{wwwroot}\\{new FileInfo(file).Name}";
+                var dist = Path.Combine(wwwroot, new FileInfo(file).Name);
 
                 if (File.Exists(dist))
                     File.Delete(dist);

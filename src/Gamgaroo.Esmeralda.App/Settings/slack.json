@@ -1,0 +1,6 @@
+{
+  "slack": {
+    "Enable": false,
+    "WebhookUrl": "WEBHOOK_URL"
+  }
+}

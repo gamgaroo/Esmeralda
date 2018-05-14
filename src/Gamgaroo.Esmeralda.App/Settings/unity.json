@@ -1,0 +1,6 @@
+{
+  "unity": {
+    "ApiKey": "API_KEY",
+    "CloudUrl": "https://build-api.cloud.unity3d.com"
+  }
+}

@@ -1,16 +1,18 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Gamgaroo.Esmeralda.Integrations.Slack.Models;
+using Gamgaroo.Esmeralda.Integrations.Slack.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Gamgaroo.Esmeralda.Integrations.Slack
+namespace Gamgaroo.Esmeralda.Integrations.Slack.Services
 {
     public sealed class SlackClient : ISlackClient
     {
-        private readonly SlackClientOptions _options;
+        private readonly SlackOptions _options;
 
         public SlackClient(
-            SlackClientOptions options)
+            SlackOptions options)
         {
             _options = options;
         }
