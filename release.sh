@@ -18,8 +18,10 @@ git config --global user.name "Travis CI"
 
 git checkout $TRAVIS_BRANCH
 
-git add -A
-git commit -m "Version $version"
+git remote set-url origin https://$GIT_TOKEN:x-oauth-basic@github.com/$USERNAME/$IMAGE.git
+
+git add VERSION
+git commit -m "Version $version [skip ci]"
 git tag -a "$version" -m "Version $version"
 git push origin $TRAVIS_BRANCH
 git push origin $TRAVIS_BRANCH --tags
