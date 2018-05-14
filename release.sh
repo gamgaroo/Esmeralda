@@ -13,11 +13,16 @@ echo "version: $version"
 ./build.sh
 
 #tag
+git config --global user.email "builds@travis-ci.org"
+git config --global user.name "Travis CI"
+
+git checkout $TRAVIS_BRANCH
+
 git add -A
 git commit -m "Version $version"
 git tag -a "$version" -m "Version $version"
-git push
-git push --tags
+git push origin $TRAVIS_BRANCH
+git push origin $TRAVIS_BRANCH --tags
 
 docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
 
