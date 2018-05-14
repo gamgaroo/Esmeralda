@@ -4,4 +4,7 @@ services:
 branches:
   only:
   - master
+before_install:
+  - chmod +x release.sh
+  - chmod +x build.sh
 script: ./release.sh
