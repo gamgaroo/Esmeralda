@@ -15,7 +15,7 @@ ASP.NET Core Web App for hosting Unity3D WebGL builds with support of Continuous
 ### Run in Docker container
 1) Run docker container
 ```
-docker run gamgaroo/esmeralda -e Unity:ApiKey="API_KEY" -p 80:80
+docker run -e Unity:ApiKey="API_KEY" -p 80:80 gamgaroo/esmeralda
 ```
 2) Create a Unity Cloud webhook with URL http://{esmeralda-url}/api/builds
 3) Start new build on Unity Cloud
