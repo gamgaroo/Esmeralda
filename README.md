@@ -30,19 +30,25 @@ Unity:ApiKey
 
 **Optional**
 
+Admin:Username (Default: admin)
+
+Admin:Password (Default: admin)
+
 Slack:Enable (Default: _false_)
 
 Slack:WebhookUrl (Defalt: _WEBHOOK_URL_)
 
 Unity:CloudUrl (Default: _[https://build-api.cloud.unity3d.com](https://build-api.cloud.unity3d.com)_)
 
+**_It is highly recommended that you change the default Username and Password values for security reasons_.**
+
 **Example**
 ```
-docker run -e Unity:ApiKey="API_KEY" -e Slack:Enable=true -e Slack:WebhookUrl="WEBHOOK_URL" -p 80:80 gamgaroo/esmeralda
+docker run -e Admin.Username="admin" -e Admin.Password="password" -e Unity:ApiKey="API_KEY" -e Slack:Enable=true -e Slack:WebhookUrl="WEBHOOK_URL" -p 80:80 gamgaroo/esmeralda
 ```
 
 ## Settings API
-You can configure Esmeralda using settings API
+You can configure Esmeralda using settings API:
 
 You can _GET_ or _POST_ on _http://{esmeralda-url}/api/settings_
 
@@ -58,6 +64,7 @@ You can _GET_ or _POST_ on _http://{esmeralda-url}/api/settings_
     }
 }
 ```
+API is secured with [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
 
 ## Notifications
 You can enable Slack notifications. App notify on Deployment Start, Deployment Success and Deployment Failure.
