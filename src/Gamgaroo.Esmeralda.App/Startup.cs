@@ -1,4 +1,5 @@
-﻿using Gamgaroo.Esmeralda.Core.Extensions;
+﻿using Gamgaroo.Esmeralda.App.Extensions;
+using Gamgaroo.Esmeralda.Core.Extensions;
 using Gamgaroo.Esmeralda.Integrations.Slack.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,7 @@ namespace Gamgaroo.Esmeralda.App
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAdminCredentials(_configuration.GetSection("admin"));
             services.AddEsmeraldaCore(_configuration.GetSection("unity"));
             services.AddSlackIntegration(_configuration.GetSection("slack"));
 

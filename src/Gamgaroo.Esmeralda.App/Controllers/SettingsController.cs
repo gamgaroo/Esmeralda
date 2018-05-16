@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Gamgaroo.Esmeralda.App.Attributes;
 using Gamgaroo.Esmeralda.App.ViewModels;
 using Gamgaroo.Esmeralda.Core.Options;
 using Gamgaroo.Esmeralda.Integrations.Slack.Options;
@@ -9,6 +10,7 @@ using Newtonsoft.Json;
 
 namespace Gamgaroo.Esmeralda.App.Controllers
 {
+    [BasicAuthorization]
     [Route("api/settings")]
     public sealed class SettingsController : Controller
     {
