@@ -3,6 +3,7 @@ ASP.NET Core Web App for hosting Unity3D WebGL builds with support of Continuous
 
 [![GitHub release](https://img.shields.io/github/release/Gamgaroo/Esmeralda/all.svg)](https://GitHub.com/Gamgaroo/Esmeralda/releases/)
 [![Build Status](https://travis-ci.org/Gamgaroo/Esmeralda.svg?branch=master)](https://travis-ci.org/Gamgaroo/Esmeralda)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Gamgaroo/Esmeralda?branch=master)](https://bettercodehub.com/)
 
 ## Getting Started
 ### Host on IIS
